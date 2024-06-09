@@ -3,6 +3,8 @@
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_FLAGS "-Wall -Wextra")
 
+include(${CMAKE_SOURCE_DIR}/balltze-cpplib/balltze.cmake)
+
 add_definitions(-DWINVER=0x0501 -DLUASOCKET_DEBUG)
 
 include_directories(${CMAKE_SOURCE_DIR}/balltze-cpplib/include/lua)
@@ -30,8 +32,8 @@ add_library(mime MODULE
     ${LUASOCKET_SRC}/compat.c
 )
 
-target_link_libraries(socket ws2_32 ${CMAKE_SOURCE_DIR}/balltze-cpplib/lib/libballtze.dll.a)
-target_link_libraries(mime ws2_32 ${CMAKE_SOURCE_DIR}/balltze-cpplib/lib/libballtze.dll.a)
+target_link_libraries(socket ws2_32 balltze)
+target_link_libraries(mime balltze)
 
 # Create output folders
 file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/lua_modules/mime")
