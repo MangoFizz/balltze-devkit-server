@@ -7,7 +7,8 @@ function Devkit.getTagList()
     local tagList = {}
     for i = 0, tagCount - 1 do
         local tag = Engine.tag.getTag(i)
-        table.insert(tagList, { path = tag.path, handle = tag.handle.value })
+        local class = tostring(tag.primaryClass):gsub("%b()", ""):lower()
+        table.insert(tagList, { path = tag.path, handle = tag.handle.value, class = class})
     end
     return tagList
 end
