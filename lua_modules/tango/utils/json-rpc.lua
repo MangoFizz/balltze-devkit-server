@@ -11,7 +11,7 @@ local function encode(data, id)
             message = result
         }
     else 
-        if #result == 1 then
+        if result and #result == 1 then
             result = result[1]
         end
     end
