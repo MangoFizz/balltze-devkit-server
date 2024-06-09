@@ -2,6 +2,7 @@
 
 local tango = require "tango"
 
+require "devkit.engine-wrapper"
 require "devkit.functions"
 
 ---@type Logger
@@ -30,10 +31,12 @@ local function tickEvent(event)
 end
 
 function PluginLoad() 
+    Logger:info("Loading DevKit Server...")
     tango.server.copas_socket.init{ port = 19190 }
     Balltze.event.tick.subscribe(tickEvent)
+    Logger:info("Listening on localhost:19190")
 end
 
 function PluginUnload()
-    Logger:info("Unloading DevKit Server")
+    Logger:info("Unloading DevKit Server...")
 end
