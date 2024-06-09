@@ -1,3 +1,6 @@
 [submodule "balltze-lib"]
 	path = balltze-lib
 	url = https://github.com/MangoFizz/balltze-library-lua.git
+[submodule "balltze-cpplib"]
+	path = balltze-cpplib
+	url = https://github.com/MangoFizz/balltze-cpplib

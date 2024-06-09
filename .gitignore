@@ -1,0 +1,3 @@
+build/
+lua_modules/mime/
+lua_modules/socket/core.dll
