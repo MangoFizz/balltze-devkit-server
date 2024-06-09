@@ -68,13 +68,11 @@ serialize =
         tinsert(result,keytostr(k)..'='..valtostr(v))
       end
     end
-    print('{'..tconcat(result,',')..'}')
     return '{'..tconcat(result,',')..'}'
   end
 
 unserialize = 
   function(strtab)
-    print('return '..strtab)
     return loadstring('return '..strtab)()
   end
 

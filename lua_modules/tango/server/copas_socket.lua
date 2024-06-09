@@ -32,8 +32,7 @@ new =
               request_str, request_id = jrpc.decode(request_str)
               local request = unserialize(request_str)
               local response = dispatcher:dispatch(request)
-              local response_str = serialize(response)
-              response_str = jrpc.encode(response_str, request_id)
+              local response_str = jrpc.encode(response, request_id)
               send_message(wrapsock,response_str)
               wrapsock:flush()
             end

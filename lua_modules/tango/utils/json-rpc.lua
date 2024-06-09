@@ -4,16 +4,23 @@ local inspect = require "inspect"
 local luna = require "luna"
 
 local function encode(data, id)
-    local result = json.decode(data:replace("{", "["):replace("}", "]"))
-    if #result == 1 then
-        result = result[1]
+    local ok, result = data[1], data[2]
+    if not ok then
+        result = {
+            code = -32000,
+            message = result
+        }
+    else 
+        if #result == 1 then
+            result = result[1]
+        end
     end
-    local encodedJson = {
+    
+    return json.encode({
         jsonrpc = "2.0",
         result = result,
         id = id
-    }
-    return json.encode(encodedJson)
+    }) .. "\n"
 end
 
 local function decode(data)

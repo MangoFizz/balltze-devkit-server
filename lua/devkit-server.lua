@@ -2,6 +2,8 @@
 
 local tango = require "tango"
 
+require "devkit.functions"
+
 ---@type Logger
 Logger = {}
 
@@ -11,7 +13,7 @@ function PluginMetadata()
         author = "MangoFizz",
         version = "1.0.0",
         targetApi = "1.1.0",
-        reloadable = false
+        reloadable = true
     }
 end
 
@@ -30,4 +32,8 @@ end
 function PluginLoad() 
     tango.server.copas_socket.init{ port = 19190 }
     Balltze.event.tick.subscribe(tickEvent)
+end
+
+function PluginUnload()
+    Logger:info("Unloading DevKit Server")
 end
