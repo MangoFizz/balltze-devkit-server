@@ -10,9 +10,11 @@ local function encode(data, id)
             code = -32000,
             message = result
         }
-    else 
-        if result and #result == 1 then
+    else
+        if type(result) == "table" and #result == 1 then
             result = result[1]
+        elseif type(result) == "userdata" then
+            result = tostring(result)
         end
     end
     
