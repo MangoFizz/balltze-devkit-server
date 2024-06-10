@@ -2,7 +2,7 @@
 
 local metaobject = require "devkit.metaobject"
 
-local wrapper = {
+EngineWrapper = {
     _table = Engine
 }
 
@@ -29,6 +29,4 @@ wrapperMetatable.__index = function(object, key)
     return field
 end
 
-setmetatable(wrapper, wrapperMetatable)
-
-Engine = wrapper
+setmetatable(EngineWrapper, wrapperMetatable)

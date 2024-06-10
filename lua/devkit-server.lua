@@ -35,8 +35,9 @@ function PluginLoad()
     tango.server.copas_socket.init{ 
         port = 19190,
         functab = { 
-            engine = Engine, 
-            devkit = Devkit 
+            engine = EngineWrapper, 
+            devkit = Devkit,
+            print = print
         }
     }
     Balltze.event.tick.subscribe(tickEvent)
