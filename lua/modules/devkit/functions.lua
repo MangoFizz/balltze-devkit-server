@@ -43,12 +43,14 @@ function Devkit.getObjectList()
         local object = Engine.gameState.getObject(i)
         if object ~= nil then
             local scenarioObjectName = {}
+            local tag = Engine.tag.getTag(object.tagHandle)
             if addSignToIndex(object.nameListIndex) ~= -1 then
                 scenarioObjectName = table.find(objectNames.elements, function (v, k) return k == object.nameListIndex + 1 end)
             end
             table.insert(objects, { 
                 index = i, 
                 tagHandle = object.tagHandle.value, 
+                tagPath = tag.path,
                 objectType = metaobject.enumUserdataToString(object.type), 
                 parentIndex = addSignToIndex(object.parentObject.index),
                 name = scenarioObjectName.name
