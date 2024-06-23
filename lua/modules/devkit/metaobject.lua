@@ -28,7 +28,11 @@ local function dumpMetaObject(value, limitElems)
                 output[k] = dumpMetaObject(v, count)
             end
         elseif t == "function" then
-            output[k] = "<function>"
+            if value.flags then
+                output[k] = v(value)
+            else 
+                output[k] = "<function>"
+            end
         else
             output[k] = v
         end
