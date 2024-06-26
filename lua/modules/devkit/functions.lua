@@ -59,3 +59,11 @@ function Devkit.getObjectList()
     end
     return objects
 end
+
+function Devkit.pathForTag(tagHandle)
+    local tag = Engine.tag.getTag(tagHandle)
+    if tag ~= nil then
+        return tag.path
+    end
+    return nil
+end
