@@ -17,8 +17,10 @@ function Devkit.getTagList()
     local tagList = {}
     for i = 0, tagCount - 1 do
         local tag = Engine.tag.getTag(i)
-        local class = tostring(tag.primaryClass):gsub("%b()", ""):lower()
-        table.insert(tagList, { path = tag.path, handle = tag.handle.value, class = class})
+        if tag then
+            local class = metaobject.enumUserdataToString(tag.primaryClass)
+            table.insert(tagList, { path = tag.path, handle = tag.handle.value, class = class})
+        end
     end
     return tagList
 end
