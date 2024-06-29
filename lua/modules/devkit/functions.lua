@@ -83,6 +83,8 @@ function Devkit.updateTag(tagHandle, data)
                 else
                     apply(currentObject[k], v)
                 end
+            elseif type(v) == "boolean" then
+                currentObject[k](currentObject, v)
             else
                 currentObject[k] = v
             end
