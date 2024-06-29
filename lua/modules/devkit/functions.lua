@@ -67,3 +67,26 @@ function Devkit.pathForTag(tagHandle)
     end
     return nil
 end
+
+function Devkit.updateTag(tagHandle, data)
+    local tag = Engine.tag.getTag(tagHandle)
+    if not tag then
+        return
+    end
+    local apply 
+    apply = function (currentObject, currentObjectData) 
+        for k, v in pairs(currentObjectData) do
+            if type(v) == "table" then
+                local i = tonumber(k)
+                if i then
+                    apply(currentObject[i], v)
+                else
+                    apply(currentObject[k], v)
+                end
+            else
+                currentObject[k] = v
+            end
+        end
+    end
+    apply(tag.data, data)
+end
