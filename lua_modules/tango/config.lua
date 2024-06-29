@@ -8,8 +8,6 @@ server_default =
   function(config)
     config = config or {}
     config.functab = config.functab or globals
-    config.serialize = config.serialize or require'tango.utils.serialization'.serialize
-    config.unserialize = config.unserialize or require'tango.utils.serialization'.unserialize
     config.pcall = pcall
     if config.write_access == nil then
       config.write_access = true
@@ -23,8 +21,6 @@ server_default =
 client_default = 
   function(config)
     config = config or {}
-    config.serialize = config.serialize or require'tango.utils.serialization'.serialize
-    config.unserialize = config.unserialize or require'tango.utils.serialization'.unserialize
     return config
   end
 

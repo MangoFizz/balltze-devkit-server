@@ -22,15 +22,11 @@ new =
         sock:setoption('tcp-nodelay',true)
         local wrapsock = copas.wrap(sock)        
         local dispatcher = dispatcher.new(config)        
-        local serialize = config.serialize
-        local unserialize = config.unserialize        
         local ok,err = copcall(
           function()
             while true do
               local request_str = receive_message(wrapsock)
-              local request_id
-              request_str, request_id = jrpc.decode(request_str)
-              local request = unserialize(request_str)
+              local request, request_id = jrpc.decode(request_str)
               local response = dispatcher:dispatch(request)
               local response_str = jrpc.encode(response, request_id)
               send_message(wrapsock,response_str)

@@ -26,7 +26,7 @@ end
 local function decode(data)
     local decodedJson = json.decode(data)
     local output = { decodedJson.method, table.unpack(decodedJson.params) }
-    return tostring(inspect(output)), decodedJson.id
+    return output, decodedJson.id
 end
 
 return {
