@@ -25,6 +25,14 @@ function Devkit.getTagList()
     return tagList
 end
 
+function Devkit.findTags(tagPathKeyword, tagClass)
+    local tags = Engine.tag.findTags(tagPathKeyword)
+    for i, tag in ipairs(tags) do
+        tags[i] = { path = tag.path, handle = tag.handle.value, class = metaobject.enumUserdataToString(tag.primaryClass) }
+    end
+    return tags
+end
+
 function table.find(t, f)
     for k, v in pairs(t) do
         if f(v, k) then

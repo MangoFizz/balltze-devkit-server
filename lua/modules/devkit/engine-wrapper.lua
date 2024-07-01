@@ -23,7 +23,15 @@ wrapperMetatable.__index = function(object, key)
             local t = type(result)
             if t == "userdata" then
                 return metaobject.dumpMetaObject(result)
+            elseif t == "table" and #result > 0 then
+                for index, value in ipairs(result) do
+                    local t = type(value)
+                    if t == "userdata" then
+                        result[index] = metaobject.dumpMetaObject(value)
+                    end
+                end
             end
+            return result
         end
     end
     return field
