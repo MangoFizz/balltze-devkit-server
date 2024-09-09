@@ -36,9 +36,9 @@ target_link_libraries(socket ws2_32 balltze)
 target_link_libraries(mime balltze)
 
 # Create output folders
-file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/lua_modules/mime")
-file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/lua_modules/socket")
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/lua/modules/mime")
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/lua/modules/socket")
 
 # Copy the built libraries to the output folders
-install(FILES $<TARGET_FILE:socket> DESTINATION "${CMAKE_SOURCE_DIR}/lua_modules/socket" RENAME core.dll)
-install(FILES $<TARGET_FILE:mime> DESTINATION "${CMAKE_SOURCE_DIR}/lua_modules/mime" RENAME core.dll)
+install(FILES $<TARGET_FILE:socket> DESTINATION "${CMAKE_SOURCE_DIR}/lua/modules/socket" RENAME core.dll)
+install(FILES $<TARGET_FILE:mime> DESTINATION "${CMAKE_SOURCE_DIR}/lua/modules/mime" RENAME core.dll)
