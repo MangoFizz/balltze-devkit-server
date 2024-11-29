@@ -1,0 +1,10 @@
+version: 1
+commands:
+  package:
+    - mkdir -p dist
+    - mercury luabundle
+    - cp dist/*.lua package/balltze-plugins/
+    - mercury pack package/ dist/
+    - rm dist/*.lua
+  release:
+    - mercury build package

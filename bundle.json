@@ -1,0 +1,26 @@
+{
+    "target": "lua53",
+    "output": "dist/balltze_devkit_server.lua",
+    "main": "balltze_devkit_server",
+    "include": [
+        "lua",
+        "lua/modules"
+    ],
+    "name": "Balltze Devkit Server Plugin",
+    "modules": [
+        "socket",
+        "socket.http",
+        "socket.headers",
+        "socket.smtp",
+        "socket.tp",
+        "socket.url",
+        "copas",
+        "copas.ftp",
+        "copas.http",
+        "copas.lock",
+        "copas.queue",
+        "copas.semaphore",
+        "copas.smtp",
+        "copas.timer"
+    ]
+}
