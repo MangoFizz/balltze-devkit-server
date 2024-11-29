@@ -42,11 +42,11 @@ local commands = {
 }
 
 function PluginLoad()
-    Logger:info("Loading DevKit Server...")
     tango.server.copas_socket.init {
         port = 19190,
         functab = {engine = EngineWrapper, devkit = Devkit, print = print}
     }
+    Logger:info("Loading DevKit Server...")
     Balltze.event.tick.subscribe(tickEvent)
     Logger:info("Listening on localhost:19190")
 
