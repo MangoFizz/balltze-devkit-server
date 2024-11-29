@@ -1,3 +1,4 @@
 build/
-lua/modules/mime/
+lua/modules/mime/core.dll
 lua/modules/socket/core.dll
+dist/
