@@ -4,7 +4,13 @@
     "version": "0.0.4",
     "author": "Mango, Sledmine",
     "category": "addon",
-    "label": "balltze",
+    "label": "balltze_devkit_server",
     "files": [],
-    "manifestVersion": "2.0.0"
+    "manifestVersion": "2.0.0",
+    "dependencies": [
+        {
+            "label": "balltze",
+            "version": "1.2.0"
+        }
+    ]
 }
