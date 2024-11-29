@@ -1,0 +1,10 @@
+{
+    "description": "Balltze Devkit Server Plugin for extension editor",
+    "name": "Balltze Devkit Server Plugin",
+    "version": "0.0.4",
+    "author": "Mango, Sledmine",
+    "category": "addon",
+    "label": "balltze",
+    "files": [],
+    "manifestVersion": "2.0.0"
+}
