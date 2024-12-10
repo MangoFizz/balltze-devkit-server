@@ -42,18 +42,17 @@ local commands = {
 }
 
 function PluginLoad()
+    Logger = Balltze.logger.createLogger("devkit")
+    Logger:info("Loading DevKit Server...")
     tango.server.copas_socket.init {
         port = 19190,
         functab = {engine = EngineWrapper, devkit = Devkit, print = print}
     }
-    Logger:info("Loading DevKit Server...")
     Balltze.event.tick.subscribe(tickEvent)
-    Logger:info("Listening on localhost:19190")
-
     for command, data in pairs(commands) do
         Balltze.command.registerCommand(command, command, data.description, data.help, false,
-                                        data.minArgs or 0, data.maxArgs or 0, false, true,
-                                        function(...)
+        data.minArgs or 0, data.maxArgs or 0, false, true,
+        function(...)
             local success, result = pcall(data.execute, table.unpack(...))
             if not success then
                 Logger:error("Error executing command '{}': {}", command, result)
@@ -62,6 +61,8 @@ function PluginLoad()
             return true
         end)
     end
+    Logger:info("Listening on localhost:19190")
+    return true
 end
 
 function PluginUnload()
