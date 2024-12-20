@@ -4,7 +4,7 @@
     "main": "balltze_devkit_server",
     "include": [
         "lua",
-        "lua/modules"
+        "lua_modules"
     ],
     "name": "Balltze Devkit Server Plugin",
     "modules": [
