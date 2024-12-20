@@ -14,7 +14,7 @@ function PluginMetadata()
         author = "MangoFizz",
         version = "1.0.0",
         targetApi = "1.1.0",
-        reloadable = true
+        reloadable = false
     }
 end
 

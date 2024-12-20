@@ -102,3 +102,7 @@ function Devkit.updateTag(tagHandle, data)
     end
     apply(tag.data, data)
 end
+
+function Devkit.reloadPlugins() 
+    Balltze.command.executeCommand("balltze_reload_plugins")
+end
